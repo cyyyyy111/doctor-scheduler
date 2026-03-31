@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Availability</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc; color: #1e293b; min-height: 100vh;
+            display: flex; justify-content: center; align-items: flex-start; padding: 60px 20px;
+        }
+        .card {
+            background: #fff; width: 100%; max-width: 520px;
+            border-radius: 16px; padding: 40px 36px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 12px 40px rgba(0,0,0,0.06);
+        }
+        h1 { font-size: 22px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+        .subtitle { font-size: 14px; color: #64748b; margin-bottom: 32px; line-height: 1.5; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block; font-size: 13px; font-weight: 600;
+            color: #374151; margin-bottom: 6px; letter-spacing: 0.02em;
+        }
+        .form-group .hint { color: #94a3b8; font-weight: 400; }
+        input {
+            width: 100%; padding: 11px 14px; border: 1.5px solid #e2e8f0; border-radius: 10px;
+            font-size: 15px; color: #1e293b; background: #f8fafc; transition: all 0.15s ease;
+        }
+        input:focus { outline: none; border-color: #3b82f6; background: #fff; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+        input::placeholder { color: #cbd5e1; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .btn {
+            width: 100%; padding: 13px; border: none; border-radius: 10px;
+            font-size: 15px; font-weight: 600; cursor: pointer;
+            background: #2563eb; color: #fff; margin-top: 8px;
+            transition: background 0.15s ease;
+        }
+        .btn:hover { background: #1d4ed8; }
+        .btn:active { transform: scale(0.995); }
+        .divider { height: 1px; background: #f1f5f9; margin: 24px 0; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Doctor Availability Form</h1>
+        <p class="subtitle">Please submit your name and available dates. First-come, first-served.</p>
+
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="e.g. Dr. Smith" required>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Available Date 1</label>
+                    <input type="date" name="slot1" required>
+                </div>
+                <div class="form-group">
+                    <label>Available Date 2</label>
+                    <input type="date" name="slot2" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label>Available Date 3 <span class="hint">(optional)</span></label>
+                    <input type="date" name="slot3">
+                </div>
+                <div class="form-group">
+                    <label>Available Date 4 <span class="hint">(optional)</span></label>
+                    <input type="date" name="slot4">
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Submit Availability</button>
+        </form>
+    </div>
+</body>
+</html>
